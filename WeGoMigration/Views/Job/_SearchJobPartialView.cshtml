@@ -1,0 +1,51 @@
+﻿
+@model List<WeGoMigration.Entities.Common.JobMasterVM>
+@{
+    ViewData["Title"] = "Verified Search Job";
+}
+
+<table id="demoGrid" class="table table-hover table-dark center" style="width:100%">
+    @if (Model.Count() == 0)
+    {
+        <tr>
+            <td colspan="10">No Jobs found.</td>
+        </tr>
+    }
+    else
+    {
+        <thead>
+            <tr class="danger">
+                <th data-defaultsign="_19"> Job Description</th>
+                <th>Company Name</th>
+                <th>IsFullTime</th>
+                <th>IsWFH</th>
+                <th>IsOnsite</th>
+                <th></th>
+            </tr>
+        </thead>
+        int i = 0;
+        foreach (var item in Model)
+        {
+            <tbody id="tabbody">
+                <tr>
+                    <td>@item.Jobdescription</td>
+                    <td>@item.CompanyName</td>
+                    <td>@item.IsFullTime</td>
+                    <td>@item.IsWFH</td>
+                    <td>@item.IsOnsite</td>
+                    <td>
+                        @if (item.IsJobApplied > 0)
+                        {
+                            <button type="button" class="btn btn-default"><i class="fa fa-check" aria-hidden="true"></i></button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-default" onclick="applyPost(@item.JobMasterId)">Apply</button>
+                        }
+                    </td>
+                </tr>
+            </tbody>
+            i++;
+        }
+    }
+</table>

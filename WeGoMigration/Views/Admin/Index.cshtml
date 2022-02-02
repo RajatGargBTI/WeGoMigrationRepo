@@ -1,0 +1,108 @@
+﻿@{
+    //Layout = null;
+    ViewBag.Title = "Admin";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+        }
+        .flex-child {
+            flex: 1;
+            border: 2px solid yellow;
+        }
+
+        .flex-child:first-child {
+            margin-right: 20px;
+        }
+        body {
+            background-image: url('/Images/adminbackgorud.jpg');
+            height: 100%;
+            /* Center and scale the image nicely */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <meta name="viewport" content="width=device-width" />
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <link href="~/css/util.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/css/main.css">
+    <title>Index</title>
+</head>
+<body>
+    <h2 style="color:red"> Welcome To admin Dash board</h2>
+    <div class="float-container">
+        <nav>
+            <div class="toggle-wrap">
+                <span style="color:black" class="toggle-bar"></span>
+            </div>
+            <hgroup>
+            </hgroup>
+        </nav>
+        <aside>
+            <a href="/Admin/ManageUsers" class="btn-info">Manage Users</a>
+            <a href="/Admin/ManageJobPosted" class="btn-info">Manage Jobs</a>
+            <a href="/Admin/Index" class="btn-info">DashBoard</a>
+            <a href="#" class="btn-info">User Request Access</a>
+            <a href="/AppUsers/Index">LogOut</a>
+        </aside>
+        <div class="flex-container">
+            <div class="flex-child magenta">
+                <div id="chartContainer" style="height:100px; width: 50%;"></div>
+            </div>
+            <div class="flex-child green">
+                <div id="chartContainerjob" style="height:100px; width: 50%;"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        window.onload = function () {
+            (function () {
+                $('.toggle-wrap').on('click', function () {
+                    $(this).toggleClass('active');
+                    $('aside').animate({ width: 'toggle' }, 200);
+                });
+            })();
+			var chart = new CanvasJS.Chart("chartContainer", {
+				theme: "light2",
+				animationEnabled: true,
+				title: {
+					text: "Number Of Post each month"
+				},
+				//subtitles: [
+				//	{ text: "Try Resizing the Browser" }
+				//],
+				data: [
+				{
+					type: "column", //change type to bar, line, area, pie, etc
+                                        //Uncomment below line to add data coming from the controller.
+					dataPoints: @Html.Raw(ViewBag.DataPoints),
+				}
+				]
+            });
+            var chart1 = new CanvasJS.Chart("chartContainerjob", {
+				theme: "light2",
+				animationEnabled: true,
+				title: {
+                    text: "Number Of Job Post each month"
+				},
+				//subtitles: [
+				//	{ text: "Try Resizing the Browser" }
+				//],
+				data: [
+				{
+					type: "column", //change type to bar, line, area, pie, etc
+                                        //Uncomment below line to add data coming from the controller.
+					dataPoints: @Html.Raw(ViewBag.DataPoints1),
+				}
+				]
+			});
+            chart.render();
+            chart1.render();
+		};
+    </script>
+</body>
+</html>	

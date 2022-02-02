@@ -1,0 +1,179 @@
+﻿@{
+    ViewData["Title"] = "RecentPostByOthers";
+}
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<link rel="stylesheet" href="~/css/Login.css" />
+<div class="login-container mt-4 mb-4">
+    <div class="off-canvas-menu">
+        <div class="off-canvas-close">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                <path fill="#999" d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z" />
+            </svg>
+        </div>
+        <ul>
+            <li>
+                <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                        <img src="~/Images/icons/icons8-permanent-job-50.png" heigt="20" width="20" />
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Manage Jobs
+                </a>
+            </li>
+            <li>
+                <a class="pt-1px d-none d-md-block" id="aboutSection" href="/AppUsers/RecentPostByOthers">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                        @*<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>*@
+                        <img src="~/Images/icons/online.png" heigt="20" width="20" />
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Recent Post Other
+                </a>
+            </li>
+            <li>
+                <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/VerifiedSearchJob">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                        <img src="~/Images/icons/job-search.png" heigt="20" width="20" />
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Search Verified Job
+                </a>
+            </li>
+            <li>
+                <a class="pt-1px d-none d-md-block" id="aboutSection" href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                        <img src="~/Images/icons/male-job-search-symbol.png" heigt="20" width="20" />
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    Search People!!
+                </a>
+            </li>
+            <li>
+                <a class="pt-1px d-none d-md-block" id="aboutSection">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                        <img src="~/Images/icons/previous.png" heigt="30" width="30" />
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <input type="button" class="like_0" value="Back!" onclick="history.back()">
+                </a>
+            </li>
+            <li>
+                <a class="tn-edit-profile" href="/AppUsers/Index">
+                    <svg width="24" height="24">
+                        <img src="~/Images/icons/logout-pngrepo-com.png" heigt="20" width="20" />
+                    </svg>
+                    Logout
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="container" id="Postsectionarea">
+        <div class="profile-page tx-13">
+            <div class="row profile-body">
+                <div>
+                    @await Html.PartialAsync("_loadAllPostByOthers")
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="hdnpostId" />
+        <input type="hidden" id="hdnAppUserId" value="@ViewBag.UserId" />
+    </div>
+    <div class="container" id="aboutsectionarea">
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        @*$("#createpost").click(function () {
+            $("#hdnpostId").val(0);
+            $.ajax({
+                    url: '@Url.Action("CreatePost", "AppUsers")',
+                    dataType: "html",
+                    type: "GET",
+                    contentType: "application/html; charset=utf-8",
+                    success: function (result) {
+                        //alert("success");
+                        $("#aboutsectionarea").hide();
+                        $("#createpostarea").html(result);
+                        $("#Postsectionarea").show();
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+        });*@
+
+        //about section
+        $("#aboutSection").click(function () {
+            var UserId = $("#hdnAppUserId").val();
+            $.ajax({
+                    url: '@Url.Action("GetAbout", "AppUsers")',
+                    dataType: "html",
+                    type: "GET",
+                    contentType: "application/html; charset=utf-8",
+                    data: { UserId: UserId },
+                    success: function (result) {
+                        $("#Postsectionarea").hide();
+                        $("#aboutsectionarea").html(result);
+                        $("#aboutsectionarea").show();
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+        });
+        @*$(".eEditPost").click(function () {
+            var postId = parseInt($(this).attr("postId"));
+            $("#hdnpostId").val(postId);
+            $.ajax({
+                    url: '@Url.Action("getUserPostsByPostId", "AppUsers")',
+                    dataType: "html",
+                    type: "GET",
+                    contentType: "application/html; charset=utf-8",
+                    data: {PostId: postId},
+                    success: function (result) {
+
+                        debugger
+                        $("#createpostarea").html(result);
+
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+        });*@
+        @*$(".ddeletePost").click(function () {
+            var postId = parseInt($(this).attr("postId"));
+            $.ajax({
+                    url: '@Url.Action("DeletePostsByPostId", "AppUsers")',
+                    dataType: "html",
+                    type: "GET",
+                    contentType: "application/html; charset=utf-8",
+                    data: {PostId: postId},
+                    success: function (result) {
+                        //alert("Post Deleted Sucessfully");
+                        window.location.reload();
+                    },
+                    error: function (xhr) {
+                        alert("error");
+                    }
+                });
+        });*@
+    });
+    $("#headerpart").hide();
+    $("#navclass").hide();
+
+    $(".menu-icon a").click(function () {
+        $(".off-canvas-menu").toggleClass("menu-in");
+    });
+    $(".off-canvas-close").click(function () {
+        $(".off-canvas-menu").removeClass("menu-in");
+    });
+</script>
+

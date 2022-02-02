@@ -1,0 +1,498 @@
+﻿@model List<WeGoMigration.Entities.JobMaster>
+@{
+    ViewData["Title"] = "Job Master";
+}
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/Login.css" />
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<style>
+    .required:after {
+        content: " *";
+        color: red;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+        padding: 10px;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+
+    .list-inline li a svg {
+        color: #fff !important;
+    }
+
+        .list-inline li a svg path {
+            fill: #fff;
+        }
+
+    .list-inline li {
+        float: left;
+        padding-right: 7px;
+    }
+
+    .header-navigation {
+        float: right;
+        width: 100%;
+    }
+
+    ul.list-inline {
+        float: right;
+    }
+
+    .cover-body.d-flex.justify-content-between.align-items-center {
+        width: 82%;
+        padding-top: 28px;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+    }
+
+    .pv {
+        color: black;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .postjob-rw {
+        width: 99%;
+    }
+
+    .header-job.text-center {
+        color: #fff;
+    }
+
+    section {
+        padding: 60px 0;
+        position: relative;
+    }
+
+    #demoGrid tr {
+        background: #fff;
+        color: #000;
+    }
+
+    .heading_tittle h3 {
+        text-align: left;
+        padding-bottom: 40px;
+        font-size: 27px;
+        color: #000;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+</style>
+<section class="cnddte_fvrt our-dashbord dashbord">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
+                <div class="user_profile">
+                    <div class="media">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="align-self-start mr-3 rounded-circle" alt="e1.png">
+                        <div class="media-body">
+                            <h5 class="mt-0">@ViewBag.FullName</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbord_nav_list">
+                    <ul>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/icons8-permanent-job-50.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Manage Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="addJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/job-search-in-newspapers.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Add JOB
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="~/AppUsers/RecentPostByOthers">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    @*<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>*@
+                                    <img src="~/Images/icons/online.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Recent Post Other
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/VerifiedSearchJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/job-search.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Search Verified Job
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/male-job-search-symbol.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Search People!!
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/previous.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input type="button" class="like_0" value="Back!" onclick="history.back()">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tn-edit-profile" href="/AppUsers/Index">
+                                <svg width="24" height="24">
+                                    <img src="~/Images/icons/logout-pngrepo-com.png" heigt="30" width="30" />
+                                </svg>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-8 col-xl-9">
+                <div class="postjob">
+                    <div class="heading_tittle text-center">
+                        <h3>Manage Jobs</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs">
+                                <div class="icon"><span class="fas fa-briefcase"></span></div>
+                                <div class="details"><h4>2 Job Posted</h4></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs">
+                                <div class="icon style2"><span class="fas fa-clipboard"></span></div>
+                                <div class="details"><h4>3 Applications</h4></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs">
+                                <div class="icon style3"><span class="fas fa-briefcase"></span></div>
+                                <div class="details"><h4>1 Active Jobs</h4></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container pb-3 main">
+                        <div class="row">
+                            <div class="postjob-rw">
+                                <input type="hidden" id="hiddenPostId" />
+                                <input type="hidden" id="hiddenJobMasterId" />
+
+                                <div class="modal fade" tabindex="-1" id="loginModal"
+                                     data-keyboard="false" data-backdrop="static">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">
+                                                    ×
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Company Name</div>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" id="companyName" onkeyup="validateCompanyName()" />
+                                                                <span id="companyerror" class="error text-danger" style="display:none">Company Name Required</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Job Description</div>
+                                                            <div class="col-md-9">
+                                                                <textarea class="form-control" type="text" id="jobDescription" onkeyup="validateJobDescription()"></textarea>
+                                                                <span id="jobdescriptionerror" class="error text-danger" style="display:none">Job Description Required</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Is Full Time</div>
+                                                            <div class="col-md-9">
+                                                                <input type="radio" name="isfulltime" value="yes" checked /> YES
+                                                                <input type="radio" name="isfulltime" value="no" /> NO
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Is WFH</div>
+                                                            <div class="col-md-9">
+                                                                <input type="radio" name="iswfh" value="yes" checked /> YES
+                                                                <input type="radio" name="iswfh" value="no" /> NO
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Is OnSite</div>
+                                                            <div class="col-md-9">
+                                                                <input type="radio" name="isonsite" value="yes" checked /> YES
+                                                                <input type="radio" name="isonsite" value="no" /> NO
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3">Image</div>
+                                                            <div class="col-md-9">
+                                                                <input type="file" id="jobmasterimage" name="avatar"
+                                                                       accept=".jpg , .jpeg , .jfif , .pjpeg , .pjp, .gif, .avif, .png">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary button button4" id="submit">Save Details</button>
+                                                <button type="button" id="btnHideModal" class="btn btn-primary button button4" data-dismiss="modal">
+                                                    Close
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog modal-sm" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Are you sure you want to delete?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                <input type="submit" value="Delete" class="btn btn-danger" onclick="deletePost()" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cnddte_fvrt_job candidate_job_reivew style2">
+                                    <div class="table-responsive job_review_table">
+                                        <table id="demoGrid" class="table table-hover table-dark center" style="width:100%">
+                                            @if (Model.Count() == 0)
+                                            {
+                                                <tr>
+                                                    <td colspan="10">No Job Posted.</td>
+                                                </tr>
+
+                                            }
+                                            else
+                                            {
+                                                <thead>
+                                                    <tr class="danger">
+                                                        <th>Job Template</th>
+                                                        <th data-defaultsign="_19"> Job Description</th>
+                                                        <th>Company Name</th>
+                                                        <th>IsFullTime</th>
+                                                        <th>IsWFH</th>
+                                                        <th>IsOnsite</th>
+                                                        <th>Edit</th>
+                                                        <th>Delete</th>
+                                                    </tr>
+                                                </thead>
+
+                                                foreach (var item in Model)
+                                                {
+                                                    <tr>
+                                                        <td>
+                                                            @if (item.JobTemplate != null)
+                                                            {
+                                                                var base64 = Convert.ToBase64String(item.JobTemplate);
+                                                                var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                                                <img src="@imgSrc" class="align-self-start mr-3 rounded-circle" style="width:65px; height:65px">
+                                                            }
+                                                            else
+                                                            { <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="align-self-start mr-3 rounded-circle" style="width:65px; height:65px" alt="e1.png">
+
+                                                            }
+                                                        </td>
+                                                        <td>@item.Jobdescription</td>
+                                                        <td>@item.CompanyName</td>
+                                                        <td>@item.IsFullTime</td>
+                                                        <td>@item.IsWFH</td>
+                                                        <td>@item.IsOnsite</td>
+                                                        <td><i class="fa fa-pencil" aria-hidden="true" onclick="editPost(@item.JobMasterId)"></i></td>
+                                                        <td><i class="fa fa-trash" aria-hidden="true" onclick="confirmDelete(@item.JobMasterId)"></i></td>
+                                                    </tr>
+
+                                                }
+                                            }
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        //$(".menu-icon a").click(function () {
+        //    $(".off-canvas-menu").toggleClass("menu-in");
+        //});
+        //$(".off-canvas-close").click(function () {
+        //    $(".off-canvas-menu").removeClass("menu-in");
+        //});
+
+        $("#addJob").click(function () {
+            $('#hiddenJobMasterId').val(0);
+            $("#loginModal").modal('show');
+        });
+
+        $("#addJob").click(function () {
+            $("#loginModal").modal('hide');
+        });
+
+
+
+        $('#submit').click(function () {
+            debugger
+            var file = document.getElementById("jobmasterimage").files[0];
+            var companyName = $('#companyName').val();
+            var jobDescription = $('#jobDescription').val();
+            var isFullTime = $("input[name='isfulltime']:checked").val();
+            var isWfhTime = $("input[name='iswfh']:checked").val();
+            var isonsite = $("input[name='isonsite']:checked").val();
+            if (companyName != '' && jobDescription != '') {
+                var formData = new FormData();
+                formData.append("JobMasterId", $('#hiddenJobMasterId').val());
+                formData.append("CompanyName", companyName);
+                formData.append("Jobdescription", jobDescription);
+                formData.append("IsFullTime", isFullTime);
+                formData.append("IsWFH", isWfhTime);
+                formData.append("IsOnsite", isonsite);
+                formData.append("Image", file);
+                //var addJobDetails = {
+                //    JobMasterId: $('#hiddenJobMasterId').val(),
+                //    CompanyName: companyName,
+                //    Jobdescription: jobDescription,
+                //    IsFullTime: isFullTime,
+                //    IsWFH: isWfhTime,
+                //    IsOnsite: isonsite,
+                //    Image: file
+                //};
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("InsertUpdatePostJob", "Job")',
+                    dataType: "json",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    mimeType: 'multipart/form-data',
+                    success: function (result) {
+                        location.reload();
+                    },
+                    error: function (result) {
+                        //alert("fail");
+                    }
+                });
+            }
+            else {
+                if (companyName == '') { $("#companyerror").show(); }
+                if (jobDescription == '') { $("#jobdescriptionerror").show();}
+            }
+        });
+
+    });
+    function editPost(id) {
+        $.ajax({
+            type: "GET",
+            url: "/Job/GetPostJob?postId=" + id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                $('#hiddenJobMasterId').val(id);
+                $("#loginModal").modal('show');
+                $('#companyName').val(response[0].companyName);
+                $('#jobDescription').val(response[0].jobdescription);
+                response[0].isFullTime ? $("input[name='isfulltime'][value='yes']").prop("checked", "checked") : $("input[name='isfulltime'][value='no']").prop("checked", "checked");
+                response[0].isWFH ? $("input[name='iswfh'][value='yes']").prop("checked", "checked") : $("input[name='iswfh'][value='no']").prop("checked", "checked");
+                response[0].isOnsite ? $("input[name='isonsite'][value='yes']").prop("checked", "checked") : $("input[name='isonsite'][value='no']").prop("checked", "checked");
+            },
+            failure: function (response) {
+                alert(response.d);
+            },
+            error: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+    function confirmDelete(id) {
+        $("#deleteModal").modal('show');
+        $('#hiddenPostId').val(id);
+    }
+    function deletePost() {
+        $.ajax({
+            type: "GET",
+            url: "/Job/DeletePostJob?postId=" + $('#hiddenPostId').val(),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                location.reload();
+                //console.log(response)
+            },
+            failure: function (response) {
+                //alert(response.d);
+            },
+            error: function (response) {
+                //alert(response.d);
+            }
+        });
+    }
+    function validateCompanyName() {
+        if ($('#companyName').val() == '') { $("#companyerror").show(); }
+        else { $("#companyerror").hide();}
+    }
+    function validateJobDescription() {
+        if ($('#jobDescription').val() == '') { $("#jobdescriptionerror").show(); }
+        else { $("#jobdescriptionerror").hide();}
+    }
+
+     $(".menu-icon a").click(function () {
+        $(".off-canvas-menu").toggleClass("menu-in");
+    });
+    $(".off-canvas-close").click(function () {
+        $(".off-canvas-menu").removeClass("menu-in");
+    });
+</script> 

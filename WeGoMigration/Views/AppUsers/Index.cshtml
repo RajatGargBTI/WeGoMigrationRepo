@@ -1,0 +1,215 @@
+﻿@model WeGoMigration.Models.LoginVm
+@{
+    ViewData["Title"] = "Home Page";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/fonts/font-awesome-4.7.0/css/font-awesome.css" rel="stylesheet" />
+<link href="~/fonts/Linearicons-Free-v1.0.0/icon-font.min.css" rel="stylesheet" />
+<link href="~/vendor/animate/animate.css" rel="stylesheet" />
+<link href="~/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" />
+<link href="~/vendor/animsition/css/animsition.css" rel="stylesheet" />
+<link href="~/vendor/select2/select2.min.css" rel="stylesheet" />
+<link href="~/css/util.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<style>
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+    }
+
+    .pv {
+        color: black;
+    }
+
+    .main {
+        background-image: url('/Images/bg-01.jpg');
+    }
+</style>
+
+<button id="LaunchPopup" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#ModalCarousel" hidden>
+    Click
+</button>
+<div class="text-center">
+    <div class="modal fade" id="ModalCarousel" tabindex="-1" role="dialog" aria-labelledby="ModalCarouselLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">X</span></button>
+                    @*<h4 class="modal-title" id="myModalLabel">Lets Connect!!</h4>*@
+                </div>
+                <!--The main div for carousel-->
+                <div id="carousel-modal-demo" class="carousel slide" data-ride="carousel" data-interval="2000">
+                    <!-- Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-modal-demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="1"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="2"></li>
+                        <li data-target="#carousel-modal-demo" data-slide-to="3"></li>
+                    </ol>
+                    <!-- Sliding images statring here -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            @*<img src="images/banana.jpg" alt="banana">*@
+                            <div class="carousel-caption">
+                                <h3>Heading 1</h3>
+                                <p>Paragrahp 1</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            @*<img src="images/currant.jpg" alt="currant">*@
+                            <div class="carousel-caption">
+                                <h3>Heading 2</h3>
+                                <p>Paragrahp 2</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            @*<img src="images/mango.jpg" alt="mango">*@
+                            <div class="carousel-caption">
+                                <h3>Heading 3</h3>
+                                <p>Paragrahp 3</p>
+                            </div>
+                        </div>
+                        <div class="item">
+                            @*<img src="images/strawberries.jpg" alt="strawberries">*@
+                            <div class="carousel-caption">
+                                <h3>Heading 4</h3>
+                                <p>Paragrahp 4</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Next / Previous controls here -->
+                    <a class="left carousel-control" href="#carousel-modal-demo" data-slide="prev">
+                        <span class="icon-prev"></span>
+                    </a>
+                    <a class="right carousel-control" href="#carousel-modal-demo" data-slide="next">
+                        <span class="icon-next"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="limiter">
+    <nav>
+        <div class="toggle-wrap">
+            <span class="toggle-bar"></span>
+        </div>
+        <hgroup>
+        </hgroup>
+    </nav>
+    <aside>
+        <a href="/Home/About">About Us</a>
+        <a href="/Home/Mission">Mission</a>
+        <a href="/Home/ContactUs">Contact Us</a>
+        <a href="/Home/PrivacyPolicy">Privacy Policy</a>
+        <a href="/AppUsers/Index">Login</a> 
+    </aside>
+    <div class="container-login100">
+        <div class="col-md-5 col-sm-12">
+
+        </div>
+        <div class="col-md-7 col-sm-12">
+            <div class="wrap-login100 p-l-50 p-r-50">
+                <form asp-action="Login" class="login100-form validate-form flex-sb flex-w">
+                    <span class="login100-form-title">
+                        <img class="responsive" style="height:100px" src="~/Images/WYGLogo.png" alt="WeGoYou">
+                    </span>
+                    <a href="#" class="btn-face">
+                        <i class="fa fa-linkedin"></i>
+                        Linkedin
+                    </a>
+                    <a href="#" class="btn-google">
+                        <img src="~/images/icons/icon-google.png" alt="GOOGLE">
+                        Google
+                    </a>
+                    <div class="p-t-31 p-b-9">
+                        <span class="txt1">
+                            Username
+                        </span>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Username is required">
+                        <input asp-for="UserName" class="input100" type="text" name="username">
+                        <span class="focus-input100"></span>
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+
+                    <div class="p-t-13 p-b-9">
+                        <span class="txt1">
+                            Password
+                        </span>
+
+                        <a href="/AppUsers/ForgetPassword" class="txt2 bo1 m-l-5">
+                            Forgot?
+                        </a>
+                    </div>
+                    <div class="wrap-input100 validate-input" data-validate="Password is required">
+                        <input asp-for="Password" type="password" class="input100">
+                        <span class="focus-input100"></span>
+                        <span asp-validation-for="Password" class="text-danger"></span>
+
+                    </div>
+                    <div class="container-login100-form-btn m-t-17">
+                        <button class="login100-form-btn" type="submit">
+                            Sign In
+                        </button>
+                    </div>
+                    <div class="w-full text-center p-t-20">
+                        <span class="txt2">
+                            Not a member?
+                        </span>
+                        <a href="/AppUsers/Register" class="txt2 bo1">
+                            Sign up now
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var message = '@(ViewBag.Message)';
+        if (message == "Email or password is wrong please try again") {
+            toastr.error("@ViewBag.Message");
+        }
+        else if (message == "You have registered succesfully!!") {
+            toastr.success("@ViewBag.Message");
+        }
+    });
+        @*loadPop("@ViewBag.Count");
+        if ("@ViewBag.Message" != null && "@ViewBag.Error" !="" ) {
+            toastr.info("@ViewBag.Error");
+        else if ("@ViewBag.Message" == "Error occured please try again !!") { toastr.error("@ViewBag.Message"); }
+        else if ("@ViewBag.Message" == "Provided credentials are incorrect please try again !!") { toastr.error("@ViewBag.Message"); }
+        else if ("@ViewBag.Message" == "Logged out successfully !!") {
+            toastr.info("@ViewBag.Message");
+        }
+    });*@
+
+    function loadPop(loadcount) {
+        var count=0;
+        if (count == loadcount) {
+            $("#LaunchPopup").trigger("click");
+            count++;
+        }
+    }
+</script>
+<script>
+    (function () {
+        $('.toggle-wrap').on('click', function () {
+            $(this).toggleClass('active');
+            $('aside').animate({ width: 'toggle' }, 200);
+        });
+    })();
+</script>

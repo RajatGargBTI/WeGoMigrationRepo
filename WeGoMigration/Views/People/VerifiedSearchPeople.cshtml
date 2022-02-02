@@ -1,0 +1,294 @@
+﻿@{ ViewData["Title"] = "Verified Search People"; }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/Login.css" />
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<link href="~/css/Loader.css" rel="stylesheet" />
+<style>
+    .required:after {
+        content: " *";
+        color: red;
+    }
+
+    .icon_boxs1 {
+        top: 24px;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+        padding: 10px;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+
+    .list-inline li a svg {
+        color: #fff !important;
+    }
+
+        .list-inline li a svg path {
+            fill: #fff;
+        }
+
+    .list-inline li {
+        float: left;
+        padding-right: 7px;
+    }
+
+    .header-navigation {
+        float: right;
+        width: 100%;
+    }
+
+    ul.list-inline {
+        float: right;
+    }
+
+    .cover-body.d-flex.justify-content-between.align-items-center {
+        width: 82%;
+        padding-top: 28px;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+    }
+
+    .pv {
+        color: black;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .postjob-rw {
+        width: 99%;
+    }
+
+    .header-job.text-center {
+        color: #fff;
+    }
+
+    section {
+        padding: 60px 0;
+        position: relative;
+    }
+
+    #demoGrid tr {
+        background: #fff;
+        color: #000;
+    }
+
+    .heading_tittle h3 {
+        text-align: left;
+        padding-bottom: 40px;
+        font-size: 27px;
+        color: #000;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+</style>
+<section class="cnddte_fvrt our-dashbord dashbord">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
+                <div class="user_profile">
+                    <div class="media">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="align-self-start mr-3 rounded-circle" alt="e1.png">
+                        <div class="media-body">
+                            <h5 class="mt-0">@ViewBag.FullNameV</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbord_nav_list">
+                    <ul>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/icons8-permanent-job-50.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Manage Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="~/AppUsers/RecentPostByOthers">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    @*<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>*@
+                                    <img src="~/Images/icons/online.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Recent Post Other
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/VerifiedSearchJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/job-search.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Search Verified Job
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/People/VerifiedSearchPeople">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/male-job-search-symbol.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Search People!!
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/previous.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input type="button" class="like_0" value="Back!" onclick="history.back()">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tn-edit-profile" href="/AppUsers/Index">
+                                <svg width="24" height="24">
+                                    <img src="~/Images/icons/logout-pngrepo-com.png" heigt="30" width="30" />
+                                </svg>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-8 col-xl-9">
+                <div class="postjob">
+                    <div class="heading_tittle text-center">
+                        <h3>Search Verified People!</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs">
+                                <div class="icon">
+                                    @*<span class="fas fa-briefcase"></span>*@
+                                    <img src="~/Images/icons/male-job-search-symbol.png" heigt="30" width="30" />
+                                </div>
+
+                                <div class="details"><h4>@*6 Jobs Applied*@</h4></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs icon_boxs1 ">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" id="searchPeopleValue" />
+                                    </div>
+                                    <div class="col-md-3"><button type="button" class="btn btn-primary button button4" id="submitSearchPeople">Search</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @*<div class="container pb-3 main">
+                            <div class="row">
+                                <div class="cnddte_fvrt_job candidate_job_reivew style2">
+                                    <div class="table-responsive job_review_table" id="_serachjob">
+                                        @await Html.PartialAsync("_LoadUserList")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>*@
+                    <div class="container" id="_serachpeople">
+                        <div class="profile-page tx-13">
+                            <div class="row profile-body">
+                                <div>
+                                    @await Html.PartialAsync("_LoadUserList")
+                                </div>
+                            </div>
+                        </div>
+                        @*<input type="hidden" id="hdnpostId" />*@
+                        @*<input type="hidden" id="hdnAppUserId" value="@ViewBag.ProfileDetails.AppUserId" />*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#submitSearchPeople').click(function () {
+            /*$("#tabbody tr td").detach();*/
+             var searchPeople = $('#searchPeopleValue').val();
+            if (searchPeople == '') {
+                window.location.reload();
+            } else {
+                if (searchPeople.length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SearchPeople", "People")',
+                    dataType: "html",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(searchPeople),
+                    success: function (result) {
+                        $("#_serachpeople").html(result);
+
+                    },
+                    error: function (result) {
+                    }
+                });
+                }
+            }
+        });
+    });
+    function AddFriend(requestTo) {
+        alert(requestTo);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("SendFriendRequest", "People")',
+            data: JSON.stringify(requestTo),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (result) { $("#_serachpeople").html(result);},
+            error: function (result) {}
+          });
+    }
+
+    function DeleteRequest(requestId) {
+        alert(requestId);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("DeleteRequest", "People")',
+            data: JSON.stringify(requestId),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (result) { $("#_serachpeople").html(result);},
+            error: function (result) {}
+          });
+    }
+
+    function AddConnection(requestId) {
+        alert(requestId);
+        $.ajax({
+            type: "POST",
+            url: '@Url.Action("AddConnection", "People")',
+            data: JSON.stringify(requestId),
+            contentType: "application/json; charset=utf-8",
+            dataType: "html",
+            success: function (result) { $("#_serachpeople").html(result);},
+            error: function (result) {}
+          });
+    }
+
+</script>

@@ -1,0 +1,15 @@
+{
+  "exclude": [
+    "**/bin",
+    "**/bower_components",
+    "**/jspm_packages",
+    "**/node_modules",
+    "**/obj",
+    "**/platforms"
+  ],
+  "dependencies": {
+    "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
+    "System.Data.SqlClient": "4.1.0",
+    "Dapper": "1.50.2"
+  }
+}

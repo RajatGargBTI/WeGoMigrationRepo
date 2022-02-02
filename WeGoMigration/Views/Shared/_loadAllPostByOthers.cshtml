@@ -1,0 +1,398 @@
+﻿<style>
+    .footer.footer.text-center {
+        background-color: #1dc2e2;
+        padding: 10px;
+        color: #fff;
+    }
+
+    .middle-wrapper {
+        margin-top: 20px;
+    }
+
+    .like_0 {
+        background: none !important;
+        border: none !important;
+    }
+
+    #postcomment {
+        background: none !important;
+        border: none !important;
+    }
+
+    #comments-container textarea {
+        width: 88% !important;
+        left: 34px !important;
+        position: relative !important;
+        top: 23px !important;
+    }
+
+    span.btn-comment {
+        border: none;
+        font-size: 15px;
+        border-radius: 100px;
+        background: rgb(40 29 100);
+        font-weight: 500;
+        padding: 15px;
+        position: relative;
+        top: 40px;
+        width: 35%;
+        text-align: center;
+        margin: 0px auto;
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+    div#comments-container {
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+        background: #fff;
+        left: 0px;
+        box-shadow: 6px 2px 7px -2px #00000047;
+        margin-top: 9px;
+    }
+
+    .user-about {
+        margin: 0 0 20px;
+        float: left;
+    }
+
+        .user-about.col-md-6 i {
+            font-size: 27px;
+            float: left;
+            padding-right: 17px;
+        }
+
+        .user-about p {
+            padding-left: 25px;
+        }
+
+    .dashbord_nav_list li {
+        list-style: none;
+        padding: 0px !important;
+        margin-bottom: 20px;
+    }
+
+        .dashbord_nav_list li a img:last-child {
+            width: 14%;
+            padding-right: 20px;
+            margin-left: 8px;
+        }
+
+    .dashbord_nav_list ul {
+        padding: 0px;
+    }
+
+    .bt-height {
+        height: 56px;
+    }
+
+    .dashbord_nav_list li a img {
+        width: 16%;
+        padding-right: 20px;
+    }
+
+    .dashbord_nav_list li a {
+        color: #000;
+    }
+
+    .mt_row {
+        flex: 1 0 64.333333%;
+        max-width: 64.333333%;
+    }
+
+    .about-side {
+        position: sticky;
+        top: 10px;
+        background-color: white;
+        padding: 50px;
+        font-size: 20px;
+        height: 100%;
+        margin-left: 18px;
+        max-width: 97%;
+        padding-bottom: 24px;
+    }
+
+    .dashbord_nav_list li a:hover {
+        color: #9f2bb9;
+        text-decoration: none;
+    }
+
+    .card-body p {
+        text-align: center;
+    }
+</style>
+
+<div class="profile-page tx-13">
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="profile-header">
+                <div class="cover">
+                    <div class="gray-shade"></div>
+                    <div class="cover-body d-flex justify-content-between align-items-center">
+                        <div class="user-name-details">
+                            <img class="profile-pic" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="profile">
+                            <span class="profile-name">@ViewBag.FullNameO</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-links bt-height">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row profile-body">
+        <div class="col-md-4 col-xl-4 left-wrapper about-side">
+            <div class="dashbord_nav_list">
+                <ul>
+                    <li>
+                        <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                <img src="~/Images/icons/icons8-permanent-job-50.png" heigt="30" width="30" />
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Manage Jobs
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pt-1px d-none d-md-block" id="addJob">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                <img src="~/Images/icons/job-search-in-newspapers.png" heigt="30" width="30" />
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Add JOB
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pt-1px d-none d-md-block" id="aboutSection" href="~/AppUsers/RecentPostByOthers">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                @*<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>*@
+                                <img src="~/Images/icons/online.png" heigt="30" width="30" />
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Recent Post Other
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/VerifiedSearchJob">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                <img src="~/Images/icons/job-search.png" heigt="30" width="30" />
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Search Verified Job
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                <img src="~/Images/icons/male-job-search-symbol.png" heigt="30" width="30" />
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            Search People!!
+                        </a>
+                    </li>
+                    <li>
+                        <a class="pt-1px d-none d-md-block" id="aboutSection">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                <img src="~/Images/icons/previous.png" heigt="30" width="30" />
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <input type="button" class="like_0" value="Back!" onclick="history.back()">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="tn-edit-profile" href="/AppUsers/Index">
+                            <svg width="24" height="24">
+                                <img src="~/Images/icons/logout-pngrepo-com.png" heigt="30" width="30" />
+                            </svg>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-sm-12 col-lg-7 col-xl-7 middle-wrapper mt_row">
+            <div>
+                <div class="row">
+                    @if (Enumerable.Any(ViewBag.UserPostDetails) == false)
+                    {
+                        <div class="col-md-12 grid-margin">
+                            <div class="card rounded shadow-sm">
+                                <i class="bi bi-three-dots-vertical"></i>
+                                <div id="createpostarea">
+                                </div>
+                                <div class="post-user-profile p-3 border-bottom position-relative pr-4">
+                                    <div class="user-profile">
+                                        <img class="profile-pic" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="profile">
+                                        <p>@ViewBag.FullNameO</p>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p> let us know what's up by Posting.'</p>
+                                    <div class="mt-3">
+
+                                    </div>
+                                </div>
+
+                                <div class="card-footer pt-2 pb-2">
+                                    <div class="post-actions">
+                                    </div>
+                                </div>
+                                <div class="card-body border-top">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var item in ViewBag.UserPostDetails)
+                        {
+                            <div class="col-md-12 grid-margin">
+                                <div class="card rounded shadow-sm">
+                                    <i class="bi bi-three-dots-vertical"></i>
+                                    <div id="createpostarea">
+                                        <img id="ItemPreview" src="">
+                                    </div>
+                                    <div class="post-user-profile p-3 border-bottom position-relative pr-4">
+                                        <div class="user-profile">
+                                            <img class="profile-pic" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="profile">
+                                            <p>@item.FullName</p>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        @item.PostText
+                                        <div class="mt-3">
+                                            @{
+                                                if (item.Picture != null)
+                                                {
+                                                    var base64 = Convert.ToBase64String(item.Picture);
+                                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                                    <img src="@imgSrc" alt="" style="width:100%; height:100%">
+                                                }
+                                            }
+                                        </div>
+                                    </div>
+
+                                    <div class="card-footer pt-2 pb-2">
+                                        <div class="post-actions">
+                                            <ul class="list-inline">
+                                                <li class="list-inline-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="red" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-heart icon-md">
+                                                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" onclick="updateLikes"></path>
+                                                    </svg> <input type="button" class="like_0" id="postlikes" name="Like" value="@item.LikeCount Likes" />
+                                                </li>
+                                                <li class="list-inline-item">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-square icon-md">
+                                                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                                                    </svg>
+                                                    <input class="postcomment" postId="@item.PostId" type="button" id="postcomment" name="Comment" value="Comments" />
+                                                    <div id="comments-container" style="">
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                            <input type="hidden" value="@item.PostId" />
+                                        </div>
+                                    </div>
+                                    <div class="card-body border-top">
+
+                                        @foreach (var postComments in item.postComments)
+                                        {
+                                            var id = "cmt" + postComments.CommentId;
+
+                                            <div class="edit-comment-section">
+                                                <div class="edit-comment-input">
+                                                    <input type="text" class="txtEditComment" readonly commentId="@postComments.CommentId" id="@id" postId="@postComments.PostId" value="@postComments.CommentText ">
+                                                    <span class="editComment-span">
+                                                        <input type="button" value="Edit Comment" class="editComment">
+                                                        <svg viewBox="0 0 24 24">
+                                                            <path fill="#2347f6" d="M14.06,9L15,9.94L5.92,19H5V18.08L14.06,9M17.66,3C17.41,3 17.15,3.1 16.96,3.29L15.13,5.12L18.88,8.87L20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18.17,3.09 17.92,3 17.66,3M14.06,6.19L3,17.25V21H6.75L17.81,9.94L14.06,6.19Z" />
+                                                        </svg>
+                                                    </span>
+
+                                                </div>
+                                            </div>
+                                        }
+                                        <div class="show-more-comments text-center mt-2">
+                                            <button type="button" class="btn">More Comments</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script>
+    $(document).ready(function () {
+        $('.btn btn-success').click(function () {
+            var postId = $('#editPost').val();
+            alert(postId);
+        });
+
+        $('.editComment').click(function () {
+            if ($(this).val() == 'Edit Comment') {
+                $(this).parent().parent().find('.txtEditComment').prop("readonly", false).css('border', '2px solid black');;
+                $(this).parent().parent().find('.txtEditComment')
+                $(this).val('Update')
+            }
+            else if ($(this).val() == 'Update') {
+                $(this).parent().parent().find('.txtEditComment').prop("readonly", true);
+                $(this).val('Edit Comment');
+                var postId = $(this).parent().parent().find('.txtEditComment').attr('postId');
+                var commentId = $(this).parent().parent().find('.txtEditComment').attr('commentId');
+                SaveComment(postId, commentId, 2);
+            }
+        });
+
+
+        $('.postcomment').click(function () {
+            var postId = $(this).attr("postid");
+            var commentBox = '<div class="row"><textarea style="width: 200px; height: 100px; left: 621.869px; top: 1817.95px;" id=cmt' + postId + '></textarea> <span class="btn-comment" onclick=SaveComment(' + postId + ',0,1)> save comment </span> </div>';
+            $(this).parent().find('#comments-container').append(commentBox);
+            $(this).hide();
+        });
+
+    });
+
+    function SaveComment(postId, commentId, ot) {
+
+        var cmtControl, txtareaValue
+        if (ot == 1) {
+            cmtControl = '#cmt' + postId;
+            txtareaValue = $(cmtControl).val();
+        }
+        else {
+            cmtControl = '#cmt' + commentId;
+            txtareaValue = $(cmtControl).val();
+        }
+
+        var formData = new FormData();
+        formData.append("postId", postId);
+        formData.append("commentValue", txtareaValue);
+        formData.append("commentId", commentId);
+        formData.append("UserId", $("#hdnAppUserId").val());
+        $.ajax({
+            url: ("/AppUsers/SaveUpdateComment"),
+            type: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            mimeType: 'multipart/form-data',
+            success: function (response) {
+                window.location.reload();
+            },
+            error: function (er) {
+                alert(er);
+            }
+        });
+
+    }
+</script>

@@ -1,0 +1,209 @@
+﻿<style>
+    .footer.footer.text-center {
+        background-color: #1dc2e2;
+        padding: 10px;
+        color: #fff;
+    }
+
+    .middle-wrapper {
+        margin-top: 20px;
+    }
+
+    .profile-body .middle-wrapper {
+        margin-top: 20px;
+        max-width: 68% !important;
+        flex: 0 0 64.333333%;
+    }
+
+    .like_0 {
+        background: none !important;
+        border: none !important;
+    }
+
+    #postcomment {
+        background: none !important;
+        border: none !important;
+    }
+
+    #comments-container textarea {
+        width: 88% !important;
+        left: 34px !important;
+        position: relative !important;
+        top: 23px !important;
+    }
+
+    span.btn-comment {
+        border: none;
+        font-size: 15px;
+        border-radius: 100px;
+        background: rgb(40 29 100);
+        font-weight: 500;
+        padding: 15px;
+        position: relative;
+        top: 40px;
+        width: 35%;
+        text-align: center;
+        margin: 0px auto;
+        color: #fff;
+        text-transform: capitalize;
+    }
+
+    div#comments-container {
+        position: absolute;
+        width: 100%;
+        z-index: 999;
+        background: #fff;
+        left: 0px;
+        box-shadow: 6px 2px 7px -2px #00000047;
+        margin-top: 9px;
+    }
+
+    .user-about {
+        margin: 0 0 20px;
+        float: left;
+    }
+
+        .user-about.col-md-6 i {
+            font-size: 27px;
+            float: left;
+            padding-right: 17px;
+        }
+
+        .user-about p {
+            padding-left: 25px;
+        }
+
+    .about-side {
+        position: sticky;
+        top: 10px;
+        background-color: white;
+        padding: 50px;
+        font-size: 20px;
+        height: 100%;
+        margin-left: 18px;
+        max-width: 97%;
+        padding-bottom: 24px;
+        margin-top: 21px;
+    }
+
+    .user-about i {
+        float: left;
+        padding-right: 11px;
+    }
+
+    .user-about h4 {
+        padding-right: 11px;
+    }
+
+    p.text-muted {
+        margin-left: 15px;
+    }
+
+    .card-body {
+        padding-bottom: 33px;
+    }
+
+    .user-about p {
+        padding-left: 17px;
+        padding-top: 10px;
+    }
+
+    .card-body p {
+        text-align: center;
+    }
+</style>
+
+<div class="profile-page tx-13">
+    <div class="row profile-body">
+        <!-- left wrapper start -->
+        <div class="col-md-7 col-xl-7 middle-wrapper">
+            @*load all post partial view by other data here*@
+
+            <div class="row">
+                @foreach (var item in ViewBag.UserList)
+                {
+                    <div class="col-md-12 grid-margin">
+                        <div class="card rounded shadow-sm">
+                            <i class="bi bi-three-dots-vertical"></i>
+                            <div id="createpostarea">
+                                <img id="ItemPreview" src="">
+                            </div>
+                            <div class="post-user-profile p-3 border-bottom position-relative pr-4">
+                                <div class="user-profile">
+                                    @{
+                                        if (item.ImageDataFiles != null)
+                                        {
+                                            var base64 = Convert.ToBase64String(item.ImageDataFiles);
+                                            var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                            @*<img src="@imgSrc" alt="" style="width:100%; height:100%">*@
+                                            <img class="profile-pic" src="@imgSrc" alt="profile">
+
+                                        }
+                                        else
+                                        {
+                                            <img class="profile-pic" src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="profile">
+                                        }
+                                    }
+                                    <p>@item.FullName</p>
+                                </div>
+
+                                @*<div class="dot-menu-right btn-group dropleft">
+                                        <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                                <path fill="currentColor" d="M12,16A2,2 0 0,1 14,18A2,2 0 0,1 12,20A2,2 0 0,1 10,18A2,2 0 0,1 12,16M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M12,4A2,2 0 0,1 14,6A2,2 0 0,1 12,8A2,2 0 0,1 10,6A2,2 0 0,1 12,4Z" />
+                                            </svg>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <ul>
+                                                <li id="editPost" class=" bi bi-three-dots-vertical eEditPost" postId="@item.PostId">Edit</li>
+                                                <li id="deletePost" class="pt-1px d-none d-md-block bi bi-three-dots-vertical ddeletePost" postId="@item.PostId">Delete</li>
+                                            </ul>
+                                        </div>
+                                    </div>*@
+                                <div class="row" style="float:right">
+                                    @if (item.ButtonTypeID == 1)
+                                    {
+
+
+                                        if (item.IsAccepted)
+                                        {
+                                            <button type="button" class="btn btn-success">Friend</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-success" onclick="AddConnection(@item.UserRequestID)">Accept</button>
+                                            <button type="button" class="btn btn-danger" onclick="DeleteRequest(@item.UserRequestID)">Decline</button>
+                                        }
+
+                                    }
+
+                                    else if (item.ButtonTypeID == 2)
+                                    {
+                                        if (item.IsAccepted)
+                                        {
+                                            <button type="button" class="btn btn-success">Friend</button>
+                                        }
+                                        else
+                                        {
+                                            <button type="button" class="btn btn-danger" onclick="DeleteRequest(@item.UserRequestID)">Cancel Request</button>
+                                        }
+                                    }
+                                    else
+                                    {
+                                        <button type="button" class="btn btn-success" onclick="AddFriend(@item.AppUserId)">Add Friend</button>
+                                    }
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+    <!-- right wrapper end -->
+</div>

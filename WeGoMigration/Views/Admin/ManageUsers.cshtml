@@ -1,0 +1,220 @@
+﻿@model List<WeGoMigration.Entities.ManageUsers>
+@{
+    ViewData["Title"] = "Users Master";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js">
+</script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<div class="table-responsive">
+    <div class="col-xs-12">
+        <a href="/Admin/Index" class="btn-info">DashBoard</a>
+        <input type="hidden" id="hiddenUserId" />
+        <input type="hidden" id="hiddenAppUserId" />
+        <div class="modal fade" tabindex="-1" id="loginModal"
+             data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">
+                            ×
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3 required">AppUserId(for internal use)</div>
+                                    <div class="col-md-9">
+                                        <input readonly class="form-control" type="text" id="appUserId" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3 required">Name</div>
+                                    <div class="col-md-9">
+                                        <input readonly class="form-control" type="text" id="userName" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3 required">Email</div>
+                                    <div class="col-md-9">
+                                        <textarea readonly class="form-control" type="text" id="email"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3 required">Password</div>
+                                    <div class="col-md-9">
+                                        <textarea class="form-control" type="text" id="Password" onkeyup="passwordDescription()"></textarea>
+                                        <span id="passworderror" class="error text-danger" style="display:none">Password Is Required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary button button4" id="submit">Save Details</button>
+                        <button type="button" id="btnHideModal" class="btn btn-primary button button4" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title" id="myModalLabel">Confirm Delete</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to delete?
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <input type="submit" value="Delete" class="btn btn-danger" onclick="deletePost()" />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <table id="demoGrid" class="table table-hover center" style="width:50%">
+            @if (Model.Count() == 0)
+            {
+                <tr>
+                    <td colspan="10">No User's found.</td>
+                </tr>
+            }
+            else
+            {
+                <thead>
+                    <tr class="danger">
+                        <th>User Name</th>
+                        <th>Email</th>
+                        <th>Password</th>
+                        <th>Userstatus</th>
+                        <th>LastLogin</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.UserName</td>
+                        <td>@item.Email</td>
+                        <td>@item.Password</td>
+                        <td>@item.Userstatus</td>
+                        <td>@item.LastLogin</td>
+                        <td><i class="fa fa-pencil" onclick="editPost(@item.AppUserId)"></i></td>
+                        <td><i class="fa fa-trash" onclick="confirmDelete(@item.AppUserId)"></i></td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        //$(".menu-icon a").click(function () {
+        //    $(".off-canvas-menu").toggleClass("menu-in");
+        //});
+        //$(".off-canvas-close").click(function () {
+        //    $(".off-canvas-menu").removeClass("menu-in");
+        //});
+
+        $("#addJob").click(function () {
+            $('#hiddenJobMasterId').val(0);
+            $("#loginModal").modal('show');
+        });
+        $("#addJob").click(function () {
+            $("#loginModal").modal('hide');
+        });
+
+        $('#submit').click(function () {
+            debugger;
+            var password = $('#Password').val();
+            if (password != '') {
+                var addJobDetails = {
+                    UserId: $("#appUserId").val(),
+                    Password: password,
+                };
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("EditUserDetails", "Admin")',
+                    data: JSON.stringify(addJobDetails),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (result) {
+                        location.reload();
+                    },
+                    error: function (result) {
+                        //alert("fail");
+                    }
+                });
+            }
+            else {
+                passwordDescription();
+            }
+        });
+
+    });
+    function editPost(id) {
+        $.ajax({
+            type: "GET",
+            url: "/Admin/EditUserDetails?UserId=" + id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                debugger;
+                $('#hiddenAppUserId').val(id);
+                $("#loginModal").modal('show');
+                $("#appUserId").val(response.appuserId);
+                $('#userName').val(response.fullName);
+                $('#email').val(response.email);
+                $('#Password').val(response.password);
+            },
+            failure: function (response) {
+                alert(response.d);
+            },
+            error: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+
+    function confirmDelete(id) {
+        $("#deleteModal").modal('show');
+        $('#hiddenUserId').val(id);
+    }
+    function deletePost() {
+        $.ajax({
+            type: "GET",
+            url: "/Admin/UserDeleteByAdmin?UserId=" + $('#hiddenUserId').val(),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                location.reload();
+                //console.log(response)
+            },
+            failure: function (response) {
+                //alert(response.d);
+            },
+            error: function (response) {
+                //alert(response.d);
+            }
+        });
+    }
+    function passwordDescription() {
+        if ($('#Password').val() == '')
+        {
+            $("#passworderror").show();
+        }
+        else { $("#passworderror").hide();}
+    }
+</script>

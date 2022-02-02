@@ -1,0 +1,93 @@
+﻿@model WeGoMigration.Entities.About
+@{
+    ViewData["Title"] = "Login";
+}
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<link rel="stylesheet" href="~/css/Login.css" />
+@using (Html.BeginForm())
+{
+    @await Html.PartialAsync("_headerPart")
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4 col-md-6">
+                @Html.LabelFor(x => x.Name, new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-4">
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="control-label"></label>
+                    @*<input type="text" id="datepicker">*@
+                    <input asp-for="DateOfBirth" id="datepicker" type="text" class="form-control" value="" />
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-6">
+                @Html.LabelFor(x => x.SkillSet, new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x => x.SkillSet, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.SkillSet, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-4">
+                @Html.LabelFor(x => x.Education, new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x => x.Education, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Education, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4 col-md-6">
+                @Html.LabelFor(x => x.Address, new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-4">
+                @Html.LabelFor(x => x.SpecialAboutYou, new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.TextAreaFor(x => x.SpecialAboutYou, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.SpecialAboutYou, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-4">
+                @Html.LabelFor(x => x.Career, new { @class = "control-label col-md-2" })
+                <div class="col-md-12">
+                    @Html.TextBoxFor(x => x.Career, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(x => x.Career, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button type="button" class="btn btn-success">Save</button>
+    </div>
+}
+@section scripts {
+    <script>
+        var js = jQuery.noConflict()
+        js(document).ready(function () {
+            $("#datepicker").datepicker({
+                changeMonth: true,
+                changeYear: true
+            });
+        });
+
+        js("#headerpart").hide();
+        js("#navclass").hide()
+    </script>
+}
+
+

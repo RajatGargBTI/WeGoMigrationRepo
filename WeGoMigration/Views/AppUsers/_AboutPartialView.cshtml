@@ -1,0 +1,237 @@
+﻿@model WeGoMigration.Entities.About
+@{
+    ViewData["Title"] = "Login";
+}
+<style>
+    .form-about {
+        background: #fff;
+        width: 97%;
+        padding: 33px;
+        margin: 0px auto;
+        box-shadow: 0px 0px 10px 7px #0000000d;
+    }
+
+    .btn-block-section {
+        text-align: center;
+    }
+
+    .About-Image {
+        position: relative;
+        top: 19px;
+    }
+
+    .mb-10 {
+        margin-bottom: 13px;
+        height: 71px;
+    }
+</style>
+<div class="profile-page tx-13">
+    <div class="row">
+        <div class="col-12 grid-margin">
+            <div class="profile-header">
+                <div class="cover">
+                    <div class="gray-shade"></div>
+                    <div class="cover-body d-flex justify-content-between align-items-center">
+                        <div class="header-navigation">
+                            <ul class="list-inline">
+                                <li class="notify-icon">
+                                    <a href="">
+                                        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                                            <path fill="currentColor" d="M10 21H14C14 22.1 13.1 23 12 23S10 22.1 10 21M21 19V20H3V19L5 17V11C5 7.9 7 5.2 10 4.3V4C10 2.9 10.9 2 12 2S14 2.9 14 4V4.3C17 5.2 19 7.9 19 11V17L21 19M17 11C17 8.2 14.8 6 12 6S7 8.2 7 11V18H17V11Z" />
+                                        </svg>
+                                    </a>
+                                </li>
+                                <li class="menu-icon">
+                                    <a href="javascript:void(0);">
+                                        <svg width="24" height="24">
+                                            <path fill="#6F6F6F" ng-attr-fill="{{icon.color}}" ng-attr-d="{{icon.data}}" d="M12,8A4,4 0 0,1 16,12A4,4 0 0,1 12,16A4,4 0 0,1 8,12A4,4 0 0,1 12,8M12,10A2,2 0 0,0 10,12A2,2 0 0,0 12,14A2,2 0 0,0 14,12A2,2 0 0,0 12,10M10,22C9.75,22 9.54,21.82 9.5,21.58L9.13,18.93C8.5,18.68 7.96,18.34 7.44,17.94L4.95,18.95C4.73,19.03 4.46,18.95 4.34,18.73L2.34,15.27C2.21,15.05 2.27,14.78 2.46,14.63L4.57,12.97L4.5,12L4.57,11L2.46,9.37C2.27,9.22 2.21,8.95 2.34,8.73L4.34,5.27C4.46,5.05 4.73,4.96 4.95,5.05L7.44,6.05C7.96,5.66 8.5,5.32 9.13,5.07L9.5,2.42C9.54,2.18 9.75,2 10,2H14C14.25,2 14.46,2.18 14.5,2.42L14.87,5.07C15.5,5.32 16.04,5.66 16.56,6.05L19.05,5.05C19.27,4.96 19.54,5.05 19.66,5.27L21.66,8.73C21.79,8.95 21.73,9.22 21.54,9.37L19.43,11L19.5,12L19.43,13L21.54,14.63C21.73,14.78 21.79,15.05 21.66,15.27L19.66,18.73C19.54,18.95 19.27,19.04 19.05,18.95L16.56,17.95C16.04,18.34 15.5,18.68 14.87,18.93L14.5,21.58C14.46,21.82 14.25,22 14,22H10M11.25,4L10.88,6.61C9.68,6.86 8.62,7.5 7.85,8.39L5.44,7.35L4.69,8.65L6.8,10.2C6.4,11.37 6.4,12.64 6.8,13.8L4.68,15.36L5.43,16.66L7.86,15.62C8.63,16.5 9.68,17.14 10.87,17.38L11.24,20H12.76L13.13,17.39C14.32,17.14 15.37,16.5 16.14,15.62L18.57,16.66L19.32,15.36L17.2,13.81C17.6,12.64 17.6,11.37 17.2,10.2L19.31,8.65L18.56,7.35L16.15,8.39C15.38,7.5 14.32,6.86 13.12,6.62L12.75,4H11.25Z"></path>
+                                        </svg>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="user-name-details">
+                            @{
+                                if (Model.ImageDataFiles != null)
+                                {
+                                    var base64 = Convert.ToBase64String(Model.ImageDataFiles);
+                                    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                    <img src="@imgSrc" alt="" class="profile-pic">
+                                }
+                                else
+                                {
+                                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="" class="profile-pic">
+                                }
+
+                            }
+                            <span class="profile-name">@Model.Name</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-links">
+                    <ul class="links d-flex align-items-center mt-3 mt-md-0">
+                        <li class="header-link-item  d-flex align-items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users mr-1 icon-md">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                            </svg>
+                            <a class="pt-1px d-none d-md-block" id="createpost">Post</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row profile-body">
+        <!-- left wrapper start -->
+        @*<div class="col-md-4 col-xl-3 left-wrapper">
+                <div class="user-about-bx">
+                    <div class="user-about">
+                        <h4>About</h4>
+                        <p class="text-muted">ddddddd</p>
+                    </div>
+                    <div class="user-about">
+                        <h4>Email:</h4>
+                        <p class="text-muted">ddddddd</p>
+                    </div>
+                </div>
+            </div>*@
+        <div class="form-about">
+            <link rel="stylesheet" href="~/css/Login.css" />
+            @using (Html.BeginForm())
+            {
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-6 mb-10">
+                            @Html.LabelFor(x => x.Name, new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 mb-10">
+                            <div class="form-group">
+                                @Html.LabelFor(x => x.DateOfBirth, new { @class = "control-label col-md-2" })
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(x => x.DateOfBirth, "{0:dd/MM/yyyy}", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(x => x.DateOfBirth, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-6 mb-10">
+                            @Html.LabelFor(x => x.SkillSet, new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.SkillSet, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.SkillSet, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 mb-10">
+                            @Html.LabelFor(x => x.Education, new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Education, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Education, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-6 mb-10">
+                            @Html.LabelFor(x => x.Address, new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Address, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Address, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 mb-10">
+                            @Html.LabelFor(x => x.SpecialAboutYou, new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.TextAreaFor(x => x.SpecialAboutYou, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.SpecialAboutYou, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-4 mb-10">
+                            @Html.LabelFor(x => x.Career, new { @class = "control-label col-md-2" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(x => x.Career, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(x => x.Career, "", new { @class = "text-danger" })
+                                @Html.HiddenFor(x => x.AboutId)
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-sm-4 mb-10 About-Image">
+                            <span class="control-label col-md-2 ">About Image</span>
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(model => model.ImageFile, "", new { type = "file", @id = "AboutImage" }) <br />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-block-section">
+                    <br />
+                    @{
+                        @if (Model.AboutId == 0)
+                        {
+                            <button type="button" class="btn btn-success" id="saveAboutDetail">Save</button>
+                        }
+                        else
+                        {
+                            <button type="button" class="btn btn-success" id="saveAboutDetail">Update</button>
+                        }
+                    }
+
+                </div>
+            }
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.13.0/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="https://code.jquery.com/ui/1.13.0/jquery-ui.js"></script>
+
+<script type="text/javascript">
+    $(function () {
+        $("#DateOfBirth").datepicker({ dateFormat: 'dd/mm/yy' });
+    });
+    $(document).ready(function () {
+        $("#saveAboutDetail").click(function () {
+            var file = document.getElementById("AboutImage").files[0];
+            var formData = new FormData();
+            formData.append("AboutId", $("#AboutId").val());
+            formData.append("Name", $("#Name").val());
+            formData.append("DateOfBirth", $("#DateOfBirth").val());
+            formData.append("SkillSet", $("#SkillSet").val());
+            formData.append("Education", $("#Education").val());
+            formData.append("SpecialAboutYou", $("#SpecialAboutYou").val());
+            formData.append("Address", $("#Address").val());
+            formData.append("Career", $("#Career").val());
+            formData.append("UserId", $("#hdnAppUserId").val());
+            formData.append("ImageFile", file);
+            $.ajax({
+                url: ("/AppUsers/SaveAbout"),
+                type: "POST",
+                data: formData,
+                contentType: false,
+                processData: false,
+                mimeType: 'multipart/form-data',
+                success: function (response) {
+                    window.location.reload();
+                },
+                error: function (er) {
+                    alert(er);
+                }
+            });
+        });
+    });
+
+    $(".menu-icon a").click(function () {
+        $(".off-canvas-menu").toggleClass("menu-in");
+    });
+    $(".off-canvas-close").click(function () {
+        $(".off-canvas-menu").removeClass("menu-in");
+    });
+</script>

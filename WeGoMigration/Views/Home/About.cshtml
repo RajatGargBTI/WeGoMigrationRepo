@@ -1,0 +1,64 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<link href="~/css/util.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<style>
+    .backround {
+        background-image: url("https://www.weyougo.in/images/logo.png");
+        background-size: cover;
+        width: 222px;
+        height: 105px;
+    }
+
+    body {
+        background-image: url('/Images/bg-01.jpg');
+    }
+</style>
+<nav>
+    <div class="toggle-wrap">
+        <span class="toggle-bar"></span>
+    </div>
+    <hgroup>
+    </hgroup>
+</nav>
+<aside>
+    <a href="/Home/About">About Us</a>
+    <a href="/Home/Mission">Mission</a>
+    <a href="/Home/ContactUs">Contact Us</a>
+    <a href="/Home/PrivacyPolicy">Privacy Policy</a>
+    <a href="/AppUsers/Index">Login</a>
+</aside>
+<div class="section_container pt_80">
+    <div class="heading_tittle">
+        <h2 class="text-center">Abouts Us</h2>
+    </div>
+    <div id="about-us" class="section-padding-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-sm-12 text-center">
+                        <div class="details_section">
+                            <h4>We are the measure of the digital travel world.</h4>
+                            <p>Give people the power to build travel professional community and bring the world closer together. it's a unique platform in the Indian travel industry which provides you the opportunity to raise the voice and share your ideas to make socioeconomic change in the industry.<p>
+                            <p>and there might be room for you to <a href="/AppUsers/Register" style="color: #FC9500;"><u>join us</u></a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+<script>
+    (function () {
+        $('.toggle-wrap').on('click', function () {
+            $(this).toggleClass('active');
+            $('aside').animate({ width: 'toggle' }, 200);
+        });
+    })();
+</script>
+

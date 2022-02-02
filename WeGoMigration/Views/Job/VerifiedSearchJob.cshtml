@@ -1,0 +1,414 @@
+﻿@model List<WeGoMigration.Entities.Common.JobMasterVM>
+@{ ViewData["Title"] = "Verified Search Job"; }
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="~/css/Login.css" />
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<link href="~/css/Loader.css" rel="stylesheet" />
+<style>
+    .required:after {
+        content: " *";
+        color: red;
+    }
+
+    .icon_boxs1 {
+        top: 24px;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+        padding: 10px;
+        color: #fff;
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+    }
+
+    .container {
+        max-width: 100%;
+    }
+
+
+    .list-inline li a svg {
+        color: #fff !important;
+    }
+
+        .list-inline li a svg path {
+            fill: #fff;
+        }
+
+    .list-inline li {
+        float: left;
+        padding-right: 7px;
+    }
+
+    .header-navigation {
+        float: right;
+        width: 100%;
+    }
+
+    ul.list-inline {
+        float: right;
+    }
+
+    .cover-body.d-flex.justify-content-between.align-items-center {
+        width: 82%;
+        padding-top: 28px;
+    }
+
+    .footer {
+        background-color: #1dc2e2;
+    }
+
+    .pv {
+        color: black;
+    }
+
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .postjob-rw {
+        width: 99%;
+    }
+
+    .header-job.text-center {
+        color: #fff;
+    }
+
+    section {
+        padding: 60px 0;
+        position: relative;
+    }
+
+    #demoGrid tr {
+        background: #fff;
+        color: #000;
+    }
+
+    .heading_tittle h3 {
+        text-align: left;
+        padding-bottom: 40px;
+        font-size: 27px;
+        color: #000;
+        font-weight: 600;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+</style>
+<section class="cnddte_fvrt our-dashbord dashbord">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-lg-4 col-xl-3 dn-smd">
+                <div class="user_profile">
+                    <div class="media">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar6.png" class="align-self-start mr-3 rounded-circle" alt="e1.png">
+                        <div class="media-body">
+                            <h5 class="mt-0">@ViewBag.FullNameV</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashbord_nav_list">
+                    <ul>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/icons8-permanent-job-50.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Manage Jobs
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="~/AppUsers/RecentPostByOthers">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    @*<path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>*@
+                                    <img src="~/Images/icons/online.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Recent Post Other
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/VerifiedSearchJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/job-search.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Search Verified Job
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection" href="/Job/PostJob">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/male-job-search-symbol.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                Search People!!
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pt-1px d-none d-md-block" id="aboutSection">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user mr-1 icon-md">
+                                    <img src="~/Images/icons/previous.png" heigt="30" width="30" />
+                                    <circle cx="12" cy="7" r="4"></circle>
+                                </svg>
+                                <input type="button" class="like_0" value="Back!" onclick="history.back()">
+                            </a>
+                        </li>
+                        <li>
+                            <a class="tn-edit-profile" href="/AppUsers/Index">
+                                <svg width="24" height="24">
+                                    <img src="~/Images/icons/logout-pngrepo-com.png" heigt="30" width="30" />
+                                </svg>
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-12 col-lg-8 col-xl-9">
+                <div class="postjob">
+                    <div class="heading_tittle text-center">
+                        <h3>Search Verified Job!</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs">
+                                <div class="icon"><span class="fas fa-briefcase"></span></div>
+                                <div class="details"><h4>6 Jobs Applied</h4></div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                            <div class="icon_boxs icon_boxs1 ">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <input class="form-control" type="text" id="searchJobValue" />
+                                    </div>
+                                    <div class="col-md-3"><button type="button" class="btn btn-primary button button4" id="submitSearchJob">Search</button></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container pb-3 main">
+                        <div class="row">
+                            <div class="postjob-rw">
+                                <div class="modal fade" tabindex="-1" id="applyjobmodal"
+                                     data-keyboard="false" data-backdrop="static">
+                                    <div id="cover-spin"></div>
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal">
+                                                    ×
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Full Name</div>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" id="fullName" readonly />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Company Name</div>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" id="companyName" readonly />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Job Description</div>
+                                                            <div class="col-md-9">
+                                                                <textarea class="form-control" type="text" id="jobDescription" readonly></textarea>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Email Address</div>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" id="emailAddress" readonly />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Phone Number</div>
+                                                            <div class="col-md-9">
+                                                                <input class="form-control" type="text" id="phonenumber" onkeyup="validatePhoneNumber()" />
+                                                                <span id="phonenumbererror" class="error text-danger" style="display:none">Phone Number Required</span>
+                                                                <span id="phonenumbervalid" class="error text-danger" style="display:none">Phone Number must be of 10 digits</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <div class="row">
+                                                            <div class="col-md-3 required">Resume/CV-<span color="red">Only PDf format</span></div>
+                                                            <div class="col-md-9">
+                                                                <input type="file" id="resume" name="avatar" accept=".doc,.docx,.pdf">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-primary button button4" id="applyjob">Apply</button>
+                                                <button type="button" id="btnHideModal" class="btn btn-primary button button4" data-dismiss="modal">
+                                                    Cancel
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cnddte_fvrt_job candidate_job_reivew style2">
+                                <div class="table-responsive job_review_table" id="_serachjob">
+                                    @await Html.PartialAsync("_SearchJobPartialView")
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('#applyjob').click(function () {
+            $("#cover-spin").show();
+            var file = document.getElementById("resume").files[0];
+            var companyName = $('#companyName').val();
+            var jobDescription = $('#jobDescription').val();
+            var fullname = $('#fullName').val();
+            var emailaddress = $('#emailAddress').val();
+            var phonenumber = $('#phonenumber').val();
+            if (companyName != '' && jobDescription != '') {
+                var formData = new FormData();
+                formData.append("JobMasterId", $('#hiddenJobMasterId').val());
+                formData.append("FullName", fullname);
+                formData.append("Email", emailaddress);
+                formData.append("PhoneNumber", phonenumber);
+                formData.append("Resume_CV", file);
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SaveAppliedJob", "Job")',
+                    dataType: "json",
+                    data: formData,
+                    contentType: false,
+                    processData: false,
+                    mimeType: 'multipart/form-data',
+                    success: function (result) {
+                        $("#cover-spin").hide();
+                        location.reload();
+                    },
+                    error: function (result) {
+                        //alert("fail");
+                    }
+                });
+            }
+            else {
+                if (companyName == '') { $("#companyerror").show(); }
+                if (jobDescription == '') { $("#jobdescriptionerror").show();}
+            }
+        });
+
+        $('#submitSearchJob').click(function () {
+            /*$("#tabbody tr td").detach();*/
+            var searchJob = $('#searchJobValue').val();
+            if (searchJob == '') {
+                window.location.reload();
+            } else {
+            if (searchJob.length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("SearchJob", "Job")',
+                    dataType: "html",
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(searchJob),
+                    success: function (result) {
+                        $("#_serachjob").html(result);
+
+                        //$.each(result, function (i, item) {
+                        //    debugger;
+                        //        $('<tr>').append(
+                        //        $('<td>').text(item.jobdescription),
+                        //        $('<td>').text(item.companyName),
+                        //        $('<td>').text(item.isFullTime),
+                        //        $('<td>').text(item.isWFH),
+                        //            $('<td>').text(item.isOnsite),
+                        //            $('<td>').text(parseInt(item.isJobApplied >= 0) ? 'Yes' : '<button type="button" class="btn btn-default"><i class="fa fa-check" aria-hidden="true"></i></button>')
+
+                        //           //$('<td>').text(parseInt(item.isJobApplied > 0) ? ' ' + '<button type="button" class="btn btn-default"><i class="fa fa-check" aria-hidden="true"></i></button>'  +' '  : ''+ '<button type="button" class="btn btn-default" onclick="applyPost(' + item.jobMasterId + ')">Apply</button> ' +''),
+                        //        ).appendTo('#tabbody')
+                        //});
+                    },
+                    error: function (result) {
+                    }
+                });
+                }
+            }
+        });
+
+    });
+    function applyPost(id)
+    {
+        $.ajax({
+            type: "GET",
+            url: "/Job/GetPostJobApplied?postId=" + id,
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                $('#hiddenJobMasterId').val(id);
+                $("#applyjobmodal").modal('show');
+                $('#companyName').val(response.companyName);
+                $('#jobDescription').val(response.jobdescription);
+                $('#fullName').val(response.fullName);
+                $('#emailAddress').val(response.email);
+            },
+            failure: function (response) {
+                alert(response.d);
+            },
+            error: function (response) {
+                alert(response.d);
+            }
+        });
+    }
+    function confirmDelete(id)
+    {
+        $("#deleteModal").modal('show');
+        $('#hiddenPostId').val(id);
+    }
+    function deletePost() {
+        $.ajax({
+            type: "GET",
+            url: "/Job/DeletePostJob?postId=" + $('#hiddenPostId').val(),
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: function (response) {
+                location.reload();
+                //console.log(response)
+            },
+            failure: function (response) {
+                //alert(response.d);
+            },
+            error: function (response) {
+                //alert(response.d);
+            }
+        });
+    }
+</script>

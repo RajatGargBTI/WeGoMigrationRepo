@@ -1,0 +1,180 @@
+﻿@model WeGoMigration.Models.Register
+@{
+    ViewData["Title"] = "Register";
+}
+<link href="~/css/util.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="~/css/main.css">
+<style>
+    /*.gradient-custom {
+        background-color: lightcyan;*/
+    /*background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+        background: linear-gradient(to bottom right, lightblue, lightgreen)*/
+    /*}*/
+    .card-registration input#Email {
+        margin-bottom: 22px;
+    }
+
+    input.btn.btn-primary {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 20px;
+        width: 100%;
+        height: 60px;
+        background-color: #333333;
+        border-radius: 10px;
+        font-family: Poppins-Medium;
+        font-size: 16px;
+        color: #fff;
+        line-height: 1.2;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+        transition: all 0.4s;
+        position: relative;
+        z-index: 1;
+    }
+
+    .card-registration .select-input.form-control[readonly]:not([disabled]) {
+        font-size: 1rem;
+        line-height: 2.15;
+        padding-left: .75em;
+        padding-right: .75em;
+    }
+
+    .card-registration .select-arrow {
+        top: 13px;
+    }
+
+    body {
+        background-image: url('/Images/bg-01.jpg');
+    }
+</style>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <nav>
+            <div class="toggle-wrap">
+                <span class="toggle-bar"></span>
+            </div>
+            <hgroup>
+            </hgroup>
+        </nav>
+        <aside>
+            <a href="/Home/About">About Us</a>
+            <a href="/Home/Mission">Mission</a>
+            <a href="/Home/ContactUs">Contact Us</a>
+            <a href="/Home/PrivacyPolicy">Privacy Policy</a>
+            <a href="/AppUsers/Index">Login</a>
+        </aside>
+        <div class="row justify-content-center align-items-center h-100">
+            <div class="col-12 col-lg-9 col-xl-7">
+                <div class="card shadow-2-strong card-registration" style="border-radius: 15px;">
+                    <div class="card-body p-4 p-md-5">
+                        <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 text-black-50">Get started !!</h3>
+                        <form asp-action="Register">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <strong> Full Name</strong>
+                                        <input asp-for="FullName" class="form-control" placeholder="Full Name" />
+                                        <span asp-validation-for="FullName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <div class="form-outline">
+                                        <strong>User Name</strong>
+                                        <input asp-for="UserName" class="form-control" placeholder="User Name" />
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        <strong>Referral Code (Optional)</strong>
+                                        <input asp-for="ReffralCode" class="form-control" placeholder="Reffral Code" />
+                                        <span asp-validation-for="ReffralCode" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 d-flex align-items-center">
+                                    <div class="form-outline datepicker w-100">
+                                        <strong>Phone Number</strong>
+                                        <input asp-for="PhoneNumber" class="form-control" placeholder="Phone Number" />
+                                        <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <strong>Email Id</strong>
+                                    <input asp-for="Email" class="form-control" placeholder="Email" />
+                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <strong>Repeat Password</strong>
+                                        <input id="rpass" type="password" asp-for="RepaetPassword" class="form-control" placeholder="Repeat Password" />
+                                        <span asp-validation-for="RepaetPassword" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 pb-2">
+                                    <div class="form-outline">
+                                        <strong> Password </strong>
+                                        <input id="pass" type="password" asp-for="Password" class="form-control" placeholder="Password" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-4 pt-2">
+                                <input type="submit" value="Register" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.2/js/toastr.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" />
+<script>
+    $(document).ready(function () {
+
+            $('.toggle-wrap').on('click', function () {
+                $(this).toggleClass('active');
+                $('aside').animate({ width: 'toggle' }, 200);
+            });
+
+        debugger;
+        if ("@ViewBag.Error" == "EmailId already exists!!") {
+            toastr.info("@ViewBag.Error")
+        }
+        else if ("@ViewBag.Error" != null && "@ViewBag.Error" !="" ) {
+           toastr.info("@ViewBag.Error")
+        }
+    });
+
+    $("form").submit(function () {
+        var pass = $("#pass").val();
+        var cpass = $("#rpass").val();
+        if (pass == cpass) {
+            return true;
+        }
+        else {
+            toastr.error("Password and confirm password must be same!!");
+            return false;
+        }
+    });
+</script>
